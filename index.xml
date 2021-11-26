@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="GM_Scripts" commit="58a3e39ba95bd0f35846aa1f39aa4cb2574295e1">
+<index version="1" name="GM_Scripts" commit="9b0f5ad1b5e5fefcc60e4a0244fddbb82d0a2ae9">
   <category name="Example">
     <reapack name="cfillion_Hello world.lua" type="script" desc="Hello world">
       <metadata>
         <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
+
 {\pard \ql \f0 \sa180 \li0 \fi0 This is an example of a package file. It installs itself as a ReaScript that does nothing but show "Hello World!" in REAPER's scripting console.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 Packages may also include additional files specified using the @provides tag.\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 This text is the documentation shown when using ReaPack's "About this package" feature. {\field{\*\fldinst{HYPERLINK "https://commonmark.org/"}}{\fldrslt{\ul
@@ -20,10 +21,111 @@ Markdown
       </version>
     </reapack>
   </category>
+  <category name="GM_Scripts">
+    <reapack name="GM_CloseAllFxWindows_ExceptMaster.lua" type="script" desc="Close all fx windows except Master">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Close all fx windows except Master\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="Giacomo Maraboli" time="2021-11-26T18:01:34Z">
+        <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/9b0f5ad1b5e5fefcc60e4a0244fddbb82d0a2ae9/GM_Scripts/GM_CloseAllFxWindows_ExceptMaster.lua</source>
+      </version>
+    </reapack>
+    <reapack name="GM_ClusterGroup_AddEmptyItems.lua" type="script" desc="group clusters of items and add empty item">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 group clusters of items and add empty item\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="Giacomo Maraboli" time="2021-11-26T18:01:34Z">
+        <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/9b0f5ad1b5e5fefcc60e4a0244fddbb82d0a2ae9/GM_Scripts/GM_ClusterGroup_AddEmptyItems.lua</source>
+      </version>
+    </reapack>
+    <reapack name="GM_ClusterGroup_RenameEmptyItems.lua" type="script" desc="rename empty items">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 rename empty items\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="Giacomo Maraboli" time="2021-11-26T18:01:34Z">
+        <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/9b0f5ad1b5e5fefcc60e4a0244fddbb82d0a2ae9/GM_Scripts/GM_ClusterGroup_RenameEmptyItems.lua</source>
+      </version>
+    </reapack>
+    <reapack name="GM_ClusterGroup_Render.lua" type="script" desc="render groups or items">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 render group or items\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="Giacomo Maraboli" time="2021-11-26T18:01:34Z">
+        <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/9b0f5ad1b5e5fefcc60e4a0244fddbb82d0a2ae9/GM_Scripts/GM_ClusterGroup_Render.lua</source>
+      </version>
+    </reapack>
+    <reapack name="GM_CreateRegionsOnClusters.lua" type="script" desc="Create regions on clusters of items">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 create regions on clusters of items\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="Giacomo Maraboli" time="2021-11-26T18:01:34Z">
+        <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/9b0f5ad1b5e5fefcc60e4a0244fddbb82d0a2ae9/GM_Scripts/GM_CreateRegionsOnClusters.lua</source>
+      </version>
+    </reapack>
+    <reapack name="GM_ItemsGroup_AddEmptyItem.lua" type="script" desc="group selected items and add empty item">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 group selected items and add empty item\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="Giacomo Maraboli" time="2021-11-26T18:01:34Z">
+        <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/9b0f5ad1b5e5fefcc60e4a0244fddbb82d0a2ae9/GM_Scripts/GM_ItemsGroup_AddEmptyItem.lua</source>
+      </version>
+    </reapack>
+    <reapack name="GM_LoopTest.lua" type="script" desc="seamless loop utility">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 seamless loop utility\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="Giacomo Maraboli" time="2021-11-26T18:01:34Z">
+        <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/9b0f5ad1b5e5fefcc60e4a0244fddbb82d0a2ae9/GM_Scripts/GM_LoopTest.lua</source>
+      </version>
+    </reapack>
+  </category>
   <metadata>
     <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
+
 {\pard \ql \f0 \sa180 \li0 \fi0 \b \fs36 ReaPack Repository Template\par}
 {\pard \ql \f0 \sa180 \li0 \fi0 A template for GitHub-hosted ReaPack repositories with automated {\field{\*\fldinst{HYPERLINK "https://github.com/cfillion/reapack-index"}}{\fldrslt{\ul
 reapack-index
@@ -43,10 +145,10 @@ README.md
 Packaging Documentation
 }}}
  on reapack-index's wiki.\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 The URL to import in ReaPack is {\field{\*\fldinst{HYPERLINK "https://github.com/cfillion/reapack-repository-template/raw/master/index.xml"}}{\fldrslt{\ul
-https://github.com/{\f1 <your username>}/{\f1 <repository name>}/raw/master/index.xml
+{\pard \ql \f0 \sa180 \li0 \fi0 The URL to import in ReaPack is {\field{\*\fldinst{HYPERLINK "https://github.com/giacomomaraboli/GM_Scripts/raw/master/index.xml"}}{\fldrslt{\ul
+https://github.com/giacomomaraboli/GM_Scripts/raw/master/index.xml
 }}}
-.\par}
+\par}
 }
 ]]></description>
   </metadata>
