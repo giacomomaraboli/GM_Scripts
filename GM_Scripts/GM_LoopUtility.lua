@@ -93,7 +93,7 @@ for x=1, #origItems do
 
     lenght = tonumber(GUI.Val("Lenght"))
     
-    numLoop = tonumber(GUI.Val("Number"))
+    numLoop = tonumber(GUI.Val("Loop(s)"))
     fade = tonumber(GUI.Val("Fade"))
    
     reaper.SelectAllMediaItems( 0, false )
@@ -270,13 +270,13 @@ GUI.New("Fade", "Textbox", {
     undo_limit = 20
 })
 
-GUI.New("Number", "Textbox", {
+GUI.New("Loop(s)", "Textbox", {
     z = 11,
     x = 48,
     y = 80,
     w = 40,
     h = 20,
-    caption = "Number",
+    caption = "Loop(s)",
     cap_pos = "left",
     font_a = 3,
     font_b = "monospace",
@@ -345,7 +345,7 @@ GUI.Init()
 GUI.Main()
 GUI.Val("Fade", userFade)
 GUI.Val("Lenght", userLenght)
-GUI.Val("Number", userNumLoop)
+GUI.Val("Loop(s)", userNumLoop)
 GUI.Val("Color", {userColor})
 GUI.Val("Glue", {userGlue})
 
