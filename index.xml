@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="GM_Scripts" commit="86655844efeba9637a0bc9fdc4d8977a9b994ac3">
+<index version="1" name="GM_Scripts" commit="e81507dcbf52b8a0d4fff21ca3ce84bc2169a6e6">
   <category name="GM_Scripts">
     <reapack name="GM_CloseAllFxWindows_ExceptMaster.lua" type="script" desc="Close all fx windows except Master">
       <metadata>
@@ -103,6 +103,9 @@
       </version>
       <version name="1.1" author="Giacomo Maraboli" time="2021-11-27T14:44:44Z">
         <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/0d241eb0b859e988c4edbaf3abef1edee9441d12/GM_Scripts/GM_LoopUtility.lua</source>
+      </version>
+      <version name="1.1.2" author="Giacomo Maraboli" time="2021-11-30T14:53:22Z">
+        <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/e81507dcbf52b8a0d4fff21ca3ce84bc2169a6e6/GM_Scripts/GM_LoopUtility.lua</source>
       </version>
     </reapack>
   </category>
