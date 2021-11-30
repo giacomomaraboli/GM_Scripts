@@ -1,6 +1,6 @@
 -- @description rename empty items
 -- @author Giacomo Maraboli
--- @version 1.0
+-- @version 1.1
 -- @about
 --   rename empty items
 
@@ -102,7 +102,7 @@ if missing_lib then return 0 end
 
 
 GUI.name = "Name Empty Items"
-GUI.x, GUI.y, GUI.w, GUI.h = 0, 0, 384, 92
+GUI.x, GUI.y, GUI.w, GUI.h = 0, 0, 600, 92
 GUI.anchor, GUI.corner = "screen", "C"
 
 
@@ -165,7 +165,7 @@ GUI.New("Name", "Textbox", {
     z = 11,
     x = 64,
     y = 16,
-    w = 257,
+    w = 500,
     h = 20,
     caption = "Name",
     cap_pos = "left",
@@ -186,9 +186,9 @@ GUI.New("Name", "Textbox", {
 
 GUI.New("Ok", "Button", {
     z = 11,
-    x = 160,
+    x = 270,
     y = 48,
-    w = 48,
+    w = 60,
     h = 30,
     caption = "Ok",
     font = 3,
@@ -208,7 +208,6 @@ GUI.ReturnSubmit = rename
 -- in the function GUI.Main_Update_Sate under GUI.char = gfx.getchar() add
 -- if GUI.char == 13 and GUI.ReturnSubmit then GUI.ReturnSubmit() end   ---ADDED
 GUI.Val("Name", default_text)
-
 
 
 
