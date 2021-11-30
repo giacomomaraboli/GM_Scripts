@@ -1,6 +1,6 @@
 -- @description seamless loop utility
 -- @author Giacomo Maraboli
--- @version 1.1
+-- @version 1.1.2
 -- @about
 --   seamless loop utility
 
@@ -144,6 +144,7 @@ for x=1, #origItems do
     end
     
 end
+reaper.SetEditCurPos(origStart, false, false)
 reaper.Undo_EndBlock("Undo loop creation", -1) 
 reaper.PreventUIRefresh(-1)
 reaper.UpdateArrange()
