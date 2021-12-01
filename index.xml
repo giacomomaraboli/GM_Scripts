@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="GM_Scripts" commit="e81507dcbf52b8a0d4fff21ca3ce84bc2169a6e6">
+<index version="1" name="GM_Scripts" commit="5bb1c16be0cc513c2cfae668dc5442f9cac4fbfb">
   <category name="GM_Scripts">
     <reapack name="GM_CloseAllFxWindows_ExceptMaster.lua" type="script" desc="Close all fx windows except Master">
       <metadata>
@@ -88,13 +88,13 @@
         <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/9b0f5ad1b5e5fefcc60e4a0244fddbb82d0a2ae9/GM_Scripts/GM_ItemsGroup_AddEmptyItem.lua</source>
       </version>
     </reapack>
-    <reapack name="GM_LoopUtility.lua" type="script" desc="seamless loop utility">
+    <reapack name="GM_LoopUtility.lua" type="script" desc="loop utility">
       <metadata>
         <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
-{\pard \ql \f0 \sa180 \li0 \fi0 seamless loop utility\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 loop utility\par}
 }
 ]]></description>
       </metadata>
@@ -106,6 +106,9 @@
       </version>
       <version name="1.1.2" author="Giacomo Maraboli" time="2021-11-30T14:53:22Z">
         <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/e81507dcbf52b8a0d4fff21ca3ce84bc2169a6e6/GM_Scripts/GM_LoopUtility.lua</source>
+      </version>
+      <version name="1.1.3" author="Giacomo Maraboli" time="2021-12-01T08:28:43Z">
+        <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/5bb1c16be0cc513c2cfae668dc5442f9cac4fbfb/GM_Scripts/GM_LoopUtility.lua</source>
       </version>
     </reapack>
   </category>
