@@ -1,8 +1,8 @@
--- @description seamless loop utility
+-- @description loop utility
 -- @author Giacomo Maraboli
--- @version 1.1.2
+-- @version 1.1.3
 -- @about
---   seamless loop utility
+--   loop utility
 
 --USER DEFAULT--
 userLenght = 0
@@ -10,6 +10,7 @@ userNumLoop = 1
 userFade = 2
 userColor = true
 userGlue = false
+userGroup = true
 ---------------
 
 reaper.ClearConsole()
@@ -58,7 +59,9 @@ function createLoop(item, origStart, lenght, index, loopEnd)
     
     
     reaper.Main_OnCommand(41059, 0) --crossfade items
-    
+    if group and not glue then
+        reaper.Main_OnCommand(40032, 0) --group items
+    end
     if glue then
        reaper.Main_OnCommand(42432, 0) --glue items
     end
@@ -74,6 +77,7 @@ function doIt()
 
 glue = GUI.Val("Glue")
 color = GUI.Val("Color")
+group = GUI.Val("Group")
 
 
 
@@ -173,8 +177,8 @@ if missing_lib then return 0 end
 
 
 
-GUI.name = "Seamless Loop Utiliy"
-GUI.x, GUI.y, GUI.w, GUI.h = 0, 0, 190, 120
+GUI.name = "Loop Utiliy"
+GUI.x, GUI.y, GUI.w, GUI.h = 0, 0, 190, 160
 GUI.anchor, GUI.corner = "screen", "C"
 
 
@@ -241,6 +245,27 @@ GUI.New("Glue", "Checklist", {
     h = 20,
     caption = "",
     optarray = {"Glue"},
+    dir = "v",
+    pad = 1,
+    font_a = 2,
+    font_b = 3,
+    col_txt = "txt",
+    col_fill = "elm_fill",
+    bg = "wnd_bg",
+    frame = false,
+    shadow = true,
+    swap = nil,
+    opt_size = 20
+})
+
+GUI.New("Group", "Checklist", {
+    z = 11,
+    x = 112,
+    y = 80,
+    w = 70,
+    h = 20,
+    caption = "",
+    optarray = {"Group"},
     dir = "v",
     pad = 1,
     font_a = 2,
@@ -329,8 +354,8 @@ GUI.New("Lenght", "Textbox", {
 
 GUI.New("Button1", "Button", {
     z = 11,
-    x = 112,
-    y = 80,
+    x = 70,
+    y = 115,
     w = 60,
     h = 20,
     caption = "GO!",
@@ -349,5 +374,6 @@ GUI.Val("Lenght", userLenght)
 GUI.Val("Loop(s)", userNumLoop)
 GUI.Val("Color", {userColor})
 GUI.Val("Glue", {userGlue})
+GUI.Val("Group", {userGroup})
 
 GUI.ReturnSubmit = doIt 
