@@ -1,6 +1,6 @@
 -- @description loop utility
 -- @author Giacomo Maraboli
--- @version 1.1.3
+-- @version 1.1.4
 -- @about
 --   loop utility
 
@@ -15,15 +15,15 @@ userGroup = true
 
 reaper.ClearConsole()
 
-function createLoop(item, origStart, lenght, index, loopEnd)
+function createLoop(item, lenght, index, loopStart)
 
     local itm = item
     local loopLenght = lenght
-    local startPoint = origStart
+    --local startPoint = origStart
     local idx = index
-    local loopEnd = loopEnd
+    --local loopEnd = loopEnd
     
-    local reposition = loopEnd 
+    local reposition = loopStart
     
     
     reaper.SetMediaItemSelected( itm, true )
@@ -55,7 +55,7 @@ function createLoop(item, origStart, lenght, index, loopEnd)
     reaper.SetMediaItemInfo_Value( reaper.GetSelectedMediaItem(0,1), "D_POSITION" , reposition )
    
    
-    loopEnd = reaper.GetMediaItemInfo_Value(reaper.GetSelectedMediaItem(0,1), "D_POSITION")+reaper.GetMediaItemInfo_Value(reaper.GetSelectedMediaItem(0,1), "D_LENGTH")
+    loopStart = reaper.GetMediaItemInfo_Value(reaper.GetSelectedMediaItem(0,1), "D_POSITION")+reaper.GetMediaItemInfo_Value(reaper.GetSelectedMediaItem(0,1), "D_LENGTH")
     
     
     reaper.Main_OnCommand(41059, 0) --crossfade items
@@ -69,7 +69,7 @@ function createLoop(item, origStart, lenght, index, loopEnd)
     
        reaper.Main_OnCommand(40706, 0) --random color
     end
-    return loopEnd
+    return loopStart
     
 end
 
@@ -87,15 +87,42 @@ reaper.PreventUIRefresh(1)
 reaper.Undo_BeginBlock()
 num=reaper.CountSelectedMediaItems()
 
+it = reaper.GetSelectedMediaItem(0,0)
+origTrack = reaper.GetMediaItem_Track( it )
+origTrackNum = reaper.GetMediaTrackInfo_Value( origTrack, "IP_TRACKNUMBER"  )
+origStartPos =  reaper.GetMediaItemInfo_Value(it, "D_POSITION")
+
+st =  reaper.GetMediaItemInfo_Value(it, "D_POSITION")
+en = st + reaper.GetMediaItemInfo_Value(it, "D_LENGTH")
+shortest = en-st
+
+
+for i=0, num-1 do
+      it = reaper.GetSelectedMediaItem(0,i)
+      st =  reaper.GetMediaItemInfo_Value(it, "D_POSITION")
+      en = st + reaper.GetMediaItemInfo_Value(it, "D_LENGTH")
+      len = en-st
+      if len < shortest then
+          shortest = len
+      end
+end
+      
+    
+
+
+
+
+
+
 origItems={}
-for x=0, num -1 do
+for x=0, num -1 do --put itmes in array
     
     origItems[x+1] = reaper.GetSelectedMediaItem(0,x)
 end
 
 for x=1, #origItems do
 
-    lenght = tonumber(GUI.Val("Lenght"))
+    lenght = tonumber(GUI.Val("Lenght")) --set UI values
     
     numLoop = tonumber(GUI.Val("Loop(s)"))
     fade = tonumber(GUI.Val("Fade"))
@@ -105,13 +132,16 @@ for x=1, #origItems do
     it = origItems[x]
     reaper.SetMediaItemSelected( it, true )
     
+    
+   
+    
     origStart =  reaper.GetMediaItemInfo_Value(it, "D_POSITION")
     origEnd = origStart + reaper.GetMediaItemInfo_Value(it, "D_LENGTH")
-    itLenght = origEnd - origStart
+    itLenght = origEnd - origStart  --calculate item lenght
 
-    if lenght == 0  or (itLenght < lenght*numLoop) then
+    if lenght == 0  or (itLenght < lenght*numLoop) then --set target lenght
         
-        lenght = (itLenght/numLoop)-fade
+        lenght = (shortest/numLoop)-fade
     end
     
    
@@ -119,7 +149,7 @@ for x=1, #origItems do
     numDivision = itLenght/numLoop
 
     for i=1, numLoop  do
-        splitPoint = origStart + (numDivision * i)
+        splitPoint = origStart + (numDivision * i) --divide item depending on number of loops
         reaper.SetEditCurPos(splitPoint, false, false)
         reaper.Main_OnCommand(40757, 0) --split item at cursor
     
@@ -127,7 +157,7 @@ for x=1, #origItems do
 
     
     loops={}
-    selNum = reaper.CountSelectedMediaItems()
+    selNum = reaper.CountSelectedMediaItems() --put new items in array
     for i=0, selNum -1 do
        
         loops[i+1]= reaper.GetSelectedMediaItem(0,i)
@@ -136,11 +166,22 @@ for x=1, #origItems do
     
     reaper.SelectAllMediaItems( 0, false )
     
-    loopEnd = origStart
+    track = reaper.GetMediaItem_Track( it )--set starting point for item in different track in order to be aligned to be aligned
+    trackNum = reaper.GetMediaTrackInfo_Value( track, "IP_TRACKNUMBER"  )
+        
+    if trackNum == origTrackNum then
+        loopStart = origStart
+    else
+        loopStart = origStartPos
+        origTrackNum = trackNum
+    end
+        
+        
+        
     for i=0, #loops -1 do
 
         item = loops[i+1]
-        loopEnd = createLoop(item, origStart, lenght, i, loopEnd)
+        loopStart = createLoop(item, lenght, i, loopStart)
         
         reaper.SelectAllMediaItems( 0, false )
         
