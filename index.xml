@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="GM_Scripts" commit="10a0f1e315a0df1a089dca4ff7fe92bb70c48ab4">
+<index version="1" name="GM_Scripts" commit="fc6df0e39c2dd82e6ec049de15060f6f699c76e4">
   <category name="GM_Scripts">
     <reapack name="GM_CloseAllFxWindows_ExceptMaster.lua" type="script" desc="Close all fx windows except Master">
       <metadata>
@@ -27,6 +27,9 @@
       </metadata>
       <version name="1.0" author="Giacomo Maraboli" time="2021-11-26T18:01:34Z">
         <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/9b0f5ad1b5e5fefcc60e4a0244fddbb82d0a2ae9/GM_Scripts/GM_ClusterGroup_AddEmptyItems.lua</source>
+      </version>
+      <version name="1.1.2" author="Giacomo Maraboli" time="2021-12-04T10:13:59Z">
+        <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/fc6df0e39c2dd82e6ec049de15060f6f699c76e4/GM_Scripts/GM_ClusterGroup_AddEmptyItems.lua</source>
       </version>
     </reapack>
     <reapack name="GM_ClusterGroup_RenameEmptyItems.lua" type="script" desc="rename empty items">
