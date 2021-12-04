@@ -1,6 +1,6 @@
 -- @description Close all fx windows except Master
 -- @author Giacomo Maraboli
--- @version 1.0
+-- @version 1.1
 -- @about
 --   Close all fx windows except Master
 
