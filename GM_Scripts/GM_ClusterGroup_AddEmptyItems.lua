@@ -1,6 +1,6 @@
 -- @description group clusters of items and add empty item 
 -- @author Giacomo Maraboli
--- @version 1.1.2
+-- @version 1.1.3
 -- @about
 --   group clusters of items and add empty item 
 
