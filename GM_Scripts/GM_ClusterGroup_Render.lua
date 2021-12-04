@@ -1,10 +1,98 @@
 -- @description render groups or items
 -- @author Giacomo Maraboli
--- @version 1.0
+-- @version 1.1.2
 -- @about
 --   render group or items
 
+
+--USER DEFAULTS--
+
+userChannels = "stereo" -- "quad" --"5.1"--"mono"
+user2ndpass = false
+userTailLenght = 0
+userSingleFile = false
+userImport = false
+
+---------------------
 reaper.ClearConsole()
+
+function singleFile()
+
+    
+reaper.Main_OnCommand( 41561, 0 ) --solo selected items
+num = reaper.CountSelectedMediaItems()
+
+
+
+for i =0, num -1 do
+    item = reaper.GetSelectedMediaItem(0,i)
+    itemStart =  reaper.GetMediaItemInfo_Value(item, "D_POSITION")
+    itemEnd = itemStart + reaper.GetMediaItemInfo_Value(item, "D_LENGTH")
+    
+    if i == 0 then
+        regionStart = itemStart
+        regionEnd = itemEnd
+    end
+    
+    if itemStart < regionStart then
+        regionStart = itemStart
+    end
+    if itemEnd > regionEnd then
+        regionEnd = itemEnd
+    end
+end
+    regIdx=reaper.AddProjectMarker2(0, true, regionStart, regionEnd, "", -1, 1)      --create regions
+    reaper.SetRegionRenderMatrix( 0, regIdx, reaper.GetMasterTrack( 0 ) , 1 )
+
+_, itemText = reaper.GetSetMediaItemInfo_String(reaper.GetSelectedMediaItem(0,0), "P_NOTES","",false )
+
+name = GUI.Val("TextboxName")
+
+if string.find(name,"@") == nil then
+                    
+      regionName = name
+else
+    regionName = string.gsub(name, "@", itemText)
+    
+    if string.sub(regionName,-3,-3) == "_" then      --check if there is an index, if so remove it
+        regionName=regionName:sub(1,-4) .. ""
+                  
+    elseif string.sub(regionName,-4,-4) == "_" then
+        regionName=regionName:sub(1,-5) .. ""
+    end 
+            
+end
+
+    
+reaper.GetSetProjectInfo_String( 0, "RENDER_PATTERN" ,regionName, true ) --set name of rendering
+reaper.Main_OnCommand( 41824, 0 ) --render with windows open
+
+reaper.DeleteProjectMarker( 0, regIdx, true )
+reaper.Main_OnCommand( 41561, 0 ) --unsolo selected items
+if  GUI.Val("Import") == true then
+    reaper.Main_OnCommand( 41557, 0 )  --untoggle solo
+end
+
+
+reaper.GetSetProjectInfo( 0, "RENDER_TAILMS" , origTailLenght, true )
+reaper.GetSetProjectInfo( 0, "RENDER_SETTINGS" ,origRenderSetting, true ) --set 2nd pass render
+reaper.GetSetProjectInfo( 0, "RENDER_TAILFLAG" ,origTailFlag, true ) --set tail active
+reaper.GetSetProjectInfo( 0, "RENDER_CHANNELS" , origNmChannel, true ) --set numebr of channels
+reaper.GetSetProjectInfo_String( 0, "RENDER_PATTERN" ,origRanderName, true )
+reaper.GetSetProjectInfo( 0, "RENDER_BOUNDSFLAG" ,origBounds, true ) 
+reaper.GetSetProjectInfo_String( 0, "RENDER_FORMAT" , origRenderFormat, true )
+reaper.GetSetProjectInfo( 0, "RENDER_ADDTOPROJ", origImport, true )
+
+
+reaper.Undo_EndBlock("Render", -1) 
+reaper.PreventUIRefresh(-1)
+reaper.UpdateArrange()
+end
+
+
+
+
+
 
 function checkItems (itemNumber, regStart, regEnd) 
       for i=0, itemNumber-1 do
@@ -47,9 +135,7 @@ end
 
 
 function clusterFreeRender()
-reaper.ClearConsole()
-reaper.PreventUIRefresh(1)
-reaper.Undo_BeginBlock()
+
 
 i=0
 reaper.Main_OnCommand( 41561, 0 ) --solo selected items
@@ -101,6 +187,8 @@ end
 reaper.GetSetProjectInfo_String( 0, "RENDER_PATTERN" ,name, true ) --set name of rendering
 reaper.Main_OnCommand( 41824, 0 ) --render with windows open
 
+
+
 k=1
 while regions[k]~= nil do  --delete all regions
          
@@ -112,7 +200,14 @@ for i=0, num-1 do
     item = allItems[i]
     reaper.SetMediaItemSelected( item, true )
 end
+
+
 reaper.Main_OnCommand( 41561, 0 ) --solo selected items
+if  GUI.Val("Import") == true then
+    reaper.Main_OnCommand( 41557, 0 )  --untoggle solo
+end
+
+
 
 reaper.GetSetProjectInfo( 0, "RENDER_TAILMS" , origTailLenght, true )
 reaper.GetSetProjectInfo( 0, "RENDER_SETTINGS" ,origRenderSetting, true ) --set 2nd pass render
@@ -121,9 +216,10 @@ reaper.GetSetProjectInfo( 0, "RENDER_CHANNELS" , origNmChannel, true ) --set num
 reaper.GetSetProjectInfo_String( 0, "RENDER_PATTERN" ,origRanderName, true )
 reaper.GetSetProjectInfo( 0, "RENDER_BOUNDSFLAG" ,origBounds, true ) 
 reaper.GetSetProjectInfo_String( 0, "RENDER_FORMAT" , origRenderFormat, true )
+reaper.GetSetProjectInfo( 0, "RENDER_ADDTOPROJ", origImport, true )
 
 
-reaper.Undo_EndBlock("", -1) 
+reaper.Undo_EndBlock("Render", -1) 
 reaper.PreventUIRefresh(-1)
 reaper.UpdateArrange()
 
@@ -224,6 +320,9 @@ end
 
 
 function setRenderOptions()  --set general render option from GUI
+
+reaper.PreventUIRefresh(1)
+reaper.Undo_BeginBlock()
     --GUI.quit = true
     item = reaper.GetSelectedMediaItem(0, 0)
     if not item then return end
@@ -264,6 +363,12 @@ function setRenderOptions()  --set general render option from GUI
         
     end
     
+    if GUI.Val("Import") == true then
+        reaper.GetSetProjectInfo( 0, "RENDER_ADDTOPROJ", 1, true )
+    else
+        reaper.GetSetProjectInfo( 0, "RENDER_ADDTOPROJ", 0, true )
+    end
+    
     reaper.GetSetProjectInfo( 0, "RENDER_BOUNDSFLAG" ,3, true )
     reaper.GetSetProjectInfo_String( 0, "RENDER_FORMAT" , "wave", true )
     reaper.GetSetProjectInfo( 0, "RENDER_SETTINGS" , (8|loop), true ) --set 2nd pass render
@@ -278,13 +383,17 @@ function setRenderOptions()  --set general render option from GUI
     end
    
     reaper.GetSetProjectInfo( 0, "RENDER_CHANNELS" , channel, true ) --set numebr of channels
-    
-    if group == true then
-        clusterGroupPrep()
+    if GUI.Val("Single") == true then
+       
+        singleFile()
+    else
+        if group == true then
+            clusterGroupPrep()
         
-     else
-         clusterFreeRender()
-     end
+        else
+            clusterFreeRender()
+        end
+    end
    
    
 end
@@ -294,8 +403,7 @@ end
     
     
 function render() --render cluster group
-      reaper.PreventUIRefresh(1)
-      reaper.Undo_BeginBlock()
+     
       
       regions ={}
       j=1
@@ -341,8 +449,8 @@ function render() --render cluster group
             k=k+1
           end
       
-        
-   
+       
+      
       reaper.Main_OnCommand( 41561, 0 )  --solo exlclusive
       reaper.GetSetProjectInfo_String( 0, "RENDER_PATTERN" ,"$region", true )
       if j == lenght then
@@ -372,7 +480,12 @@ function render() --render cluster group
           reaper.SetMediaItemSelected(item, true)
           reaper.Main_OnCommand(40034,0)  --select all items in group
       end
+      
       reaper.Main_OnCommand( 41561, 0 )  --untoggle solo exlclusive
+      if  GUI.Val("Import") == true then
+          reaper.Main_OnCommand( 41557, 0 )  --untoggle solo
+      end
+      
       --reaper.Main_OnCommand( 41557, 0 )  --untoggle solo
       
       
@@ -386,9 +499,11 @@ function render() --render cluster group
       reaper.GetSetProjectInfo( 0, "RENDER_BOUNDSFLAG" ,origBounds, true ) 
       reaper.GetSetProjectInfo_String( 0, "RENDER_FORMAT" , origRenderFormat, true )
       
-      reaper.Undo_EndBlock("", -1)
-      reaper.PreventUIRefresh(-1)
-      reaper.UpdateArrange()
+      reaper.GetSetProjectInfo( 0, "RENDER_ADDTOPROJ", origImport, true )
+      
+reaper.Undo_EndBlock("Render", -1) 
+reaper.PreventUIRefresh(-1)
+reaper.UpdateArrange()
       
 end
 
@@ -430,6 +545,8 @@ origTailFlag = reaper.GetSetProjectInfo( 0, "RENDER_TAILFLAG " ,0, false ) --set
 origNmChannel = reaper.GetSetProjectInfo( 0, "RENDER_CHANNELS" , 0, false ) --set numebr of channels
 _,origRanderName = reaper.GetSetProjectInfo_String( 0, "RENDER_PATTERN" ,"", false )
 _, origRenderFormat = reaper.GetSetProjectInfo_String( 0, "RENDER_FORMAT" , "", false )
+origImport = reaper.GetSetProjectInfo( 0, "RENDER_ADDTOPROJ", 0, false )
+
 
 
 -- Script generated by Lokasenna's GUI Builder
@@ -452,7 +569,7 @@ GUI.req("Classes/Class - Button.lua")()
 if missing_lib then return 0 end
 
 GUI.name = "Render Groups"
-GUI.x, GUI.y, GUI.w, GUI.h = 0, 0, 384, 158
+GUI.x, GUI.y, GUI.w, GUI.h = 0, 0, 600, 158
 GUI.anchor, GUI.corner = "screen", "C"
 
 
@@ -581,7 +698,47 @@ end
 
 --Start GUI second part
 
+GUI.New("Single", "Checklist", {
+    z = 11,
+    x = 355,
+    y = 48,
+    w = 70,
+    h = 20,
+    caption = "",
+    optarray = {"Single file"},
+    dir = "v",
+    pad = 1,
+    font_a = 2,
+    font_b = 3,
+    col_txt = "txt",
+    col_fill = "elm_fill",
+    bg = "wnd_bg",
+    frame = false,
+    shadow = true,
+    swap = true,
+    opt_size = 20
+})
 
+GUI.New("Import", "Checklist", {
+    z = 11,
+    x = 495,
+    y = 48,
+    w = 70,
+    h = 20,
+    caption = "",
+    optarray = {"Import in project"},
+    dir = "v",
+    pad = 1,
+    font_a = 2,
+    font_b = 3,
+    col_txt = "txt",
+    col_fill = "elm_fill",
+    bg = "wnd_bg",
+    frame = false,
+    shadow = true,
+    swap = true,
+    opt_size = 20
+})
 
 GUI.New("Checklist1", "Radio", {
     z = 11,
@@ -590,7 +747,7 @@ GUI.New("Checklist1", "Radio", {
     w = 65,
     h = 45,
     caption = "",
-    optarray = {"Tail", "Loop"},
+    optarray = {"Tail", "2nd pass"},
     dir = "v",
     pad = 0,
     font_a = 2,
@@ -606,8 +763,8 @@ GUI.New("Checklist1", "Radio", {
 
 GUI.New("Render", "Button", {
     z = 11,
-    x = 128,
-    y = 112,
+    x = 230,
+    y = 100,
     w = 128,
     h = 30,
     caption = "Render",
@@ -639,9 +796,9 @@ GUI.New("Channels", "Menubox", {
 
 GUI.New("TextboxTail", "Textbox", {
     z = 11,
-    x = 224,
+    x = 210,
     y = 48,
-    w = 35,
+    w = 50,
     h = 20,
     caption = "Lenght (s)",
     cap_pos = "right",
@@ -660,7 +817,7 @@ GUI.New("TextboxName", "Textbox", {
     z = 11,
     x = 64,
     y = 16,
-    w = 257,
+    w = 500,
     h = 20,
     caption = "Name",
     cap_pos = "left",
@@ -678,7 +835,26 @@ GUI.New("TextboxName", "Textbox", {
 GUI.Init()
 GUI.Main()
 GUI.elms.TextboxName.focus = true
-GUI.Val("TextboxTail","0")
+GUI.Val("TextboxTail", userTailLenght)
+if user2ndpass == true then
+    GUI.Val("Checklist1", 2)
+else  
+    GUI.Val("Checklist1", 1)
+end
+
+GUI.Val("Single", {userSingleFile})
+GUI.Val("Import", {userImport})
+if userChannels == "stereo" then
+    GUI.Val("Channels", 2)
+elseif userChannels == "mono" then
+    GUI.Val("Channels", 1)
+elseif userChannels == "5.1" then
+    GUI.Val("Channels", 4)
+elseif userChannels == "quad" then
+    GUI.Val("Channels", 3)
+end
+
+
 GUI.Val("TextboxName",default_text) 
 GUI.ReturnSubmit = setRenderOptions
       
@@ -686,4 +862,3 @@ GUI.ReturnSubmit = setRenderOptions
       
       
       
-
