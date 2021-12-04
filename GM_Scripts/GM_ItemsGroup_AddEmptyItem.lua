@@ -1,6 +1,6 @@
 -- @description group selected items and add empty item
 -- @author Giacomo Maraboli
--- @version 1.0
+-- @version 1.1
 -- @about
 --   group selected items and add empty item
 
@@ -88,11 +88,13 @@ firstSelItemNum = reaper.CountSelectedMediaItems()    --count number of item sel
 selItemNum = firstSelItemNum
 
 item = reaper.GetSelectedMediaItem(0,0)
+
 if item == nil then return end
+tk = reaper.GetActiveTake(item) 
 id=reaper.GetMediaItemInfo_Value( item, "I_GROUPID" )
 
 
-if id > 0 then
+if id > 0  and tk == nil then
     reaper.Main_OnCommand( 40033, 0 )  
     reaper.Main_OnCommand( 40707,0)
 else
