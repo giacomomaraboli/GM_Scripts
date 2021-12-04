@@ -91,8 +91,9 @@ reaper.PreventUIRefresh(1)
 reaper.Undo_BeginBlock()
 
 item = reaper.GetSelectedMediaItem(0,0)
-tk = reaper.GetActiveTake(item) 
+
 if item == nil then return end
+tk = reaper.GetActiveTake(item) 
 id=reaper.GetMediaItemInfo_Value( item, "I_GROUPID" )
 
 
