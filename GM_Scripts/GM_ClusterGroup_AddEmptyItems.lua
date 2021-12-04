@@ -1,6 +1,6 @@
 -- @description group clusters of items and add empty item 
 -- @author Giacomo Maraboli
--- @version 1.0
+-- @version 1.1.2
 -- @about
 --   group clusters of items and add empty item 
 
@@ -91,11 +91,12 @@ reaper.PreventUIRefresh(1)
 reaper.Undo_BeginBlock()
 
 item = reaper.GetSelectedMediaItem(0,0)
+tk = reaper.GetActiveTake(item) 
 if item == nil then return end
 id=reaper.GetMediaItemInfo_Value( item, "I_GROUPID" )
 
 
-if id > 0 then
+if id > 0 and tk == nil then --check if item is in group
     reaper.Main_OnCommand( 40033, 0 )  
     reaper.Main_OnCommand( 40707,0)
 else
