@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="GM_Scripts" commit="a1e038f5f086d19b8e2d230b74c2500bf8d4d057">
+<index version="1" name="GM_Scripts" commit="2edbac978fc777b94edc3364b505b30d1a67aa0b">
   <category name="GM_Scripts">
     <reapack name="GM_CloseAllFxWindows_ExceptMaster.lua" type="script" desc="Close all fx windows except Master">
       <metadata>
@@ -133,6 +133,20 @@
       </version>
       <version name="1.1.5" author="Giacomo Maraboli" time="2021-12-22T14:43:04Z">
         <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/a1e038f5f086d19b8e2d230b74c2500bf8d4d057/GM_Scripts/GM_LoopUtility.lua</source>
+      </version>
+    </reapack>
+    <reapack name="NextVariation.lua" type="script" desc="NextVariation">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 move to next variation in item (needs other takemarker script)\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.1.1" author="Giacomo Maraboli" time="2021-12-22T15:50:26Z">
+        <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/2edbac978fc777b94edc3364b505b30d1a67aa0b/GM_Scripts/NextVariation.lua</source>
       </version>
     </reapack>
   </category>
