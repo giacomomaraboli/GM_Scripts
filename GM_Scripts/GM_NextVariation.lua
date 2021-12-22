@@ -1,6 +1,6 @@
 -- @description NextVariation
 -- @author Giacomo Maraboli
--- @version 1.1.1
+-- @version 1.1.2
 -- @about
 --   move to next variation in item (needs other takemarker script)
 reaper.ClearConsole()
