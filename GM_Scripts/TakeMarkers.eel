@@ -2,8 +2,8 @@
 // @author nvk
 // @version 1.0
 // @about
-//   add take markers to variation in items
-// @noindex scritp from nvk
+//   add take markers to variation in items, scritp from nvk
+// @noindex 
 
 window = 0.01; //window size. 
 speed = 1; //reduces accuracy for speed, limited perfomance increase after 20. 1 is slowest but most accurate.
