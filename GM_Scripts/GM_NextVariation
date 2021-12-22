@@ -4,13 +4,14 @@
 -- @about
 --   move to next variation in item (needs other takemarker script)
 reaper.ClearConsole()
+takeMarkers = reaper.NamedCommandLookup("_RSc9de81039b618a1628836ab8e1735583beb23540") --nvk take markers in GM folder --TakeMarkers.lua -- change ID if necessary
 
 reaper.Undo_BeginBlock()
 reaper.PreventUIRefresh(1)
 command = reaper.NamedCommandLookup("_SWS_SAVEVIEW")
 reaper.Main_OnCommand(command,0)
-command = reaper.NamedCommandLookup("_RSc9de81039b618a1628836ab8e1735583beb23540") --nvk take markers in GM folder --TakeMarkers.lua
-reaper.Main_OnCommand(command,0)
+
+reaper.Main_OnCommand(takeMarkers,0)
 --start_time, end_time = reaper.GetSet_ArrangeView2( 0, false, 0, 0 )
 
 cursorPos = reaper.GetCursorPosition()
