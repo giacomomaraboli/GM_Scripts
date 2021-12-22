@@ -1,10 +1,10 @@
 -- @description NextVariation
 -- @author Giacomo Maraboli
--- @version 1.1
+-- @version 1.1.1
 -- @about
 --   move to next variation in item (needs other takemarker script)
 reaper.ClearConsole()
-takeMarkers = reaper.NamedCommandLookup("_RSc9de81039b618a1628836ab8e1735583beb23540") --nvk take markers in GM folder --TakeMarkers.lua -- change ID if necessary
+takeMarkers = reaper.NamedCommandLookup("_RS73a0953fcac24d2edc635eb77323d25ab259ea5e") --nvk take markers in GM folder --TakeMarkers.lua -- change ID if necessary
 
 reaper.Undo_BeginBlock()
 reaper.PreventUIRefresh(1)
