@@ -1,6 +1,6 @@
 -- @description render groups or items
 -- @author Giacomo Maraboli
--- @version 1.1.2
+-- @version 1.1.3
 -- @about
 --   render group or items
 
@@ -144,6 +144,7 @@ allItems = {}
 for i=0, num-1 do
     allItems[i] = reaper.GetSelectedMediaItem(0, i)
 end
+
 lastItem = false
 regions = {}
 k=1
@@ -333,13 +334,14 @@ reaper.Undo_BeginBlock()
     else    
         isGrouped = reaper.GetMediaItemInfo_Value( item, "I_GROUPID"  )
         if isGrouped == 0 then 
-            retval = reaper.MB("Empty item not in a group", "Error", 0 ) 
-            return 
-            
-        end
+            group = false
+            reaper.ShowConsoleMsg("nogroup")
+        else
+        
         group = true
         --defaultText()
         --retval = reaper.MB("Not an empty item", "Error", 0 )
+        end
     end
     
     
@@ -388,10 +390,13 @@ reaper.Undo_BeginBlock()
         singleFile()
     else
         if group == true then
+        
             clusterGroupPrep()
         
         else
+       
             clusterFreeRender()
+            
         end
     end
    
@@ -525,12 +530,15 @@ if tk then
 else    
     isGrouped = reaper.GetMediaItemInfo_Value( item, "I_GROUPID"  )
     if isGrouped == 0 then 
-        retval = reaper.MB("Empty item not in a group", "Error", 0 ) 
-        return 
+        group = false
+            default_text = ""
+        --retval = reaper.MB("Empty item not in a group", "Error", 0 ) 
         
-    end
+        
+    else
     group = true
     default_text = "@"
+    end
     --retval = reaper.MB("Not an empty item", "Error", 0 )
 end
 
@@ -834,6 +842,7 @@ GUI.New("TextboxName", "Textbox", {
 
 GUI.Init()
 GUI.Main()
+
 GUI.elms.TextboxName.focus = true
 GUI.Val("TextboxTail", userTailLenght)
 if user2ndpass == true then
