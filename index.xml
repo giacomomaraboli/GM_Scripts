@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="GM_Scripts" commit="03f328f132a5b00ced6352c8731e0cbb33813eb8">
+<index version="1" name="GM_Scripts" commit="27651f45cc5bc2b2b428096ef86d5b9db1c057aa">
   <category name="GM_Scripts">
     <reapack name="GM_CloseAllFxWindows_ExceptMaster.lua" type="script" desc="Close all fx windows except Master">
       <metadata>
@@ -73,6 +73,9 @@
       </version>
       <version name="1.1.2" author="Giacomo Maraboli" time="2021-12-04T11:52:57Z">
         <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/30e2f8c5bd29e8a73d310d2d50e1dd4f2c5e880f/GM_Scripts/GM_ClusterGroup_Render.lua</source>
+      </version>
+      <version name="1.1.3" author="Giacomo Maraboli" time="2021-12-23T09:09:34Z">
+        <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/27651f45cc5bc2b2b428096ef86d5b9db1c057aa/GM_Scripts/GM_ClusterGroup_Render.lua</source>
       </version>
     </reapack>
     <reapack name="GM_CreateRegionsOnClusters.lua" type="script" desc="Create regions on clusters of items">
