@@ -1,6 +1,6 @@
 -- @description render groups or items
 -- @author Giacomo Maraboli
--- @version 1.1.3
+-- @version 1.1.4
 -- @about
 --   render group or items
 
