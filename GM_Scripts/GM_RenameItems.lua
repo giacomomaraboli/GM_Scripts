@@ -1,8 +1,8 @@
--- @description rename empty items
+-- @description rename items
 -- @author Giacomo Maraboli
--- @version 1.2
+-- @version 1.3
 -- @about
---   rename empty items
+--   rename items -- works with cluster groups
 
 reaper.ClearConsole()
 
@@ -14,22 +14,82 @@ function rename()
    
    reaper.PreventUIRefresh(1)
    reaper.Undo_BeginBlock()
-    text = GUI.Val("Name")
-    if number > 1 then
+   
+   
+   item = reaper.GetSelectedMediaItem(0, 0)
+   if not item then return end
+   tk = reaper.GetActiveTake(item)
+   if tk then
+       --_, default_text = reaper.GetSetMediaItemTakeInfo_String( tk, "P_NAME" , "", false )
+       items = {}
+       selItemNum =  reaper.CountSelectedMediaItems()
+       for i=0, selItemNum -1 do
+           item = reaper.GetSelectedMediaItem(0,i)
+           items[i+1] = item
+       end
+       number = #items
+       
+       text = GUI.Val("Name")
+               if number > 1 then
+                 
+                   for i=0,number -1 do
+                        item = items[i+1]
+                        tk = reaper.GetActiveTake(item)
+                        
+                        if text == "" then
+                            _,_= reaper.GetSetMediaItemTakeInfo_String( tk, "P_NAME" , text, true )
+                            
+                       else
+                         add = "_" .. string.format("%02d", tostring(i+1))    --add index
+                         
+                         _,_= reaper.GetSetMediaItemTakeInfo_String( tk, "P_NAME" , text..add, true )
+                           
+                       end
+                   end
+               else
+               
+                   reaper.ULT_SetMediaItemNote(emptyItems[1], text)
+               end
+             --GUI.quit = true 
+  
+   else
+       selItemNum =  reaper.CountSelectedMediaItems()  --count number of items
+       diff = false
+       emptyItems = {}
+       
+   
+       for i=0, selItemNum -1 do
+           item = reaper.GetSelectedMediaItem(0, i)    --get item
+            tk = reaper.GetActiveTake(item)             --check if item is empty
+           if not tk then
+               emptyItems[i+1]= item
       
-        for i=0,number -1 do
-            if text == "" then
-                reaper.ULT_SetMediaItemNote(emptyItems[i+1],text)    
-            else
-              add = "_" .. string.format("%02d", tostring(i+1))    --add index
-                reaper.ULT_SetMediaItemNote(emptyItems[i+1], text..add)
-            end
-        end
-    else
-    
-        reaper.ULT_SetMediaItemNote(emptyItems[1], text)
-    end
-  GUI.quit = true  
+          end
+       end
+       number=#emptyItems
+       
+      text = GUI.Val("Name")
+         if number > 1 then
+           
+             for i=0,number -1 do
+                 if text == "" then
+                     reaper.ULT_SetMediaItemNote(emptyItems[i+1],text)    
+                 else
+                   add = "_" .. string.format("%02d", tostring(i+1))    --add index
+                     reaper.ULT_SetMediaItemNote(emptyItems[i+1], text..add)
+                 end
+             end
+         else
+         
+             reaper.ULT_SetMediaItemNote(emptyItems[1], text)
+         end
+       --GUI.quit = true 
+      
+   end
+   
+   
+   
+  
   reaper.Undo_EndBlock("Undo rename items", -1) 
   reaper.PreventUIRefresh(-1)
   reaper.UpdateArrange()
@@ -43,35 +103,37 @@ end
 item = reaper.GetSelectedMediaItem(0, 0)
 if not item then return end
 tk = reaper.GetActiveTake(item)
-if tk then return end
-
-
-selItemNum =  reaper.CountSelectedMediaItems()  --count number of items
-diff = false
-emptyItems = {}
-j=1
-
-for i=0, selItemNum -1 do
-    item = reaper.GetSelectedMediaItem(0, i)    --get item
-    tk = reaper.GetActiveTake(item)             --check if item is empty
-    if not tk then
-        emptyItems[j]= item
+if tk then
+    _, default_text = reaper.GetSetMediaItemTakeInfo_String( tk, "P_NAME" , "", false )
    
-        j=j+1
+    
+    if default_text ~= "" then 
+            if string.sub(default_text,-3,-3) == "_" then      --check if there is an index, if so remove it
+               default_text=default_text:sub(1,-4) .. ""
+                      
+            elseif string.sub(default_text,-4,-4) == "_" then
+            default_text=default_text:sub(1,-5) .. ""
+            end
+                
     end
-end
-number=#emptyItems
+        
+    
+else
+    selItemNum =  reaper.CountSelectedMediaItems()  --count number of items
+    diff = false
+    
+   
+    _, default_text = reaper.GetSetMediaItemInfo_String(item, "P_NOTES","",false )
 
-_, default_text = reaper.GetSetMediaItemInfo_String(emptyItems[1], "P_NOTES","",false )
-
-if number > 1  and default_text ~= "" then 
-    if string.sub(default_text,-3,-3) == "_" then      --check if there is an index, if so remove it
-        default_text=default_text:sub(1,-4) .. ""
+    if default_text ~= "" then 
+        if string.sub(default_text,-3,-3) == "_" then      --check if there is an index, if so remove it
+           default_text=default_text:sub(1,-4) .. ""
                   
-    elseif string.sub(default_text,-4,-4) == "_" then
+        elseif string.sub(default_text,-4,-4) == "_" then
         default_text=default_text:sub(1,-5) .. ""
-    end
+       end
             
+    end
 end
 
 
@@ -159,6 +221,67 @@ GUI.Main_Update_State = function()
     end
 
 end
+
+
+
+function GUI.Textbox:new(name, z, x, y, w, h, caption, pad)
+
+  local txt = (not x and type(z) == "table") and z or {}
+
+  txt.name = name
+  txt.type = "Textbox"
+
+  txt.z = txt.z or z
+
+  txt.x = txt.x or x
+    txt.y = txt.y or y
+    txt.w = txt.w or w
+    txt.h = txt.h or h
+
+    txt.retval = txt.retval or ""
+
+  txt.caption = txt.caption or caption or ""
+  txt.pad = txt.pad or pad or 4
+
+    if txt.shadow == nil then
+        txt.shadow = true
+    end
+  txt.bg = txt.bg or "wnd_bg"
+  txt.color = txt.color or "txt"
+
+  txt.font_a = txt.font_a or 3
+
+  txt.font_b = txt.font_b or "monospace"
+
+    txt.cap_pos = txt.cap_pos or "left"
+
+    txt.undo_limit = txt.undo_limit or 20
+
+    txt.undo_states = {}
+    txt.redo_states = {}
+
+    txt.wnd_pos = 0
+    
+    txt.caret = string.len(default_text)
+    
+          
+  
+  txt.sel_s, txt.sel_e = nil, nil
+
+    txt.char_h, txt.wnd_h, txt.wnd_w, txt.char_w = nil, nil, nil, nil
+
+  txt.focus = false
+
+  txt.blink = 0
+  GUI.redraw_z[txt.z] = true
+
+  setmetatable(txt, self)
+  self.__index = self
+  return txt
+
+end
+
+
 
 
 
@@ -564,7 +687,6 @@ GUI.ReturnSubmit = rename
 -- in the function GUI.Main_Update_Sate under GUI.char = gfx.getchar() add
 -- if GUI.char == 13 and GUI.ReturnSubmit then GUI.ReturnSubmit() end   ---ADDED
 GUI.Val("Name", default_text)
-
 
 
 
