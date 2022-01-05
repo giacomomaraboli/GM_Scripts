@@ -1,9 +1,8 @@
--- @description render groups or items
+-- @description render utility
 -- @author Giacomo Maraboli
--- @version 1.1.4
+-- @version 1.2
 -- @about
---   render group or items
-
+--   render utility
 
 --USER DEFAULTS--
 
