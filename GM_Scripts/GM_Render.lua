@@ -1,6 +1,6 @@
 -- @description render utility
 -- @author Giacomo Maraboli
--- @version 1.2
+-- @version 1.2.1
 -- @about
 --   render utility
 
@@ -156,6 +156,12 @@ while true do
       item = reaper.GetSelectedMediaItem(0, 0)
       if item == nil then break end
       
+      tk = reaper.GetActiveTake(item)
+      if not tk then 
+            _, itemText = reaper.GetSetMediaItemInfo_String(item , "P_NOTES","",false )
+      end
+      
+      
       regionStart =  reaper.GetMediaItemInfo_Value(item, "D_POSITION")
       regionEnd = regionStart + reaper.GetMediaItemInfo_Value(item, "D_LENGTH")
      
@@ -181,6 +187,10 @@ if #regions > 1 then
     name  = GUI.Val("TextboxName").."_$regionnumber"
 else
     name = GUI.Val("TextboxName")
+end
+
+if itemText ~= "" and name == "@" then
+    name = itemText
 end
 
 
@@ -334,7 +344,7 @@ reaper.Undo_BeginBlock()
         isGrouped = reaper.GetMediaItemInfo_Value( item, "I_GROUPID"  )
         if isGrouped == 0 then 
             group = false
-            reaper.ShowConsoleMsg("nogroup")
+            --reaper.ShowConsoleMsg("nogroup")
         else
         
         group = true
@@ -520,25 +530,26 @@ reaper.ClearConsole()
 
 num=reaper.CountSelectedMediaItems()
 item = reaper.GetSelectedMediaItem(0, 0)
-if not item then return end
-tk = reaper.GetActiveTake(item)
-if tk then 
-    group = false
-    default_text = ""
-   -- reaper.ShowConsoleMsg("do cluster regions render")
-else    
-    isGrouped = reaper.GetMediaItemInfo_Value( item, "I_GROUPID"  )
-    if isGrouped == 0 then 
+if item then 
+    tk = reaper.GetActiveTake(item)
+    if tk then 
         group = false
+        default_text = ""
+   -- reaper.ShowConsoleMsg("do cluster regions render")
+    else    
+        isGrouped = reaper.GetMediaItemInfo_Value( item, "I_GROUPID"  )
+        if isGrouped == 0 then 
+            group = false
             default_text = ""
         --retval = reaper.MB("Empty item not in a group", "Error", 0 ) 
         
         
-    else
-    group = true
-    default_text = "@"
-    end
+        else
+            group = true
+            default_text = "@"
+        end
     --retval = reaper.MB("Not an empty item", "Error", 0 )
+    end
 end
 
 
