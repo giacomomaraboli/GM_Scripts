@@ -1,6 +1,6 @@
 -- @description render utility
 -- @author Giacomo Maraboli
--- @version 1.3
+-- @version 1.4
 -- @about
 --   render utility
 
@@ -159,6 +159,8 @@ while true do
       tk = reaper.GetActiveTake(item)
       if not tk then 
             _, itemText = reaper.GetSetMediaItemInfo_String(item , "P_NOTES","",false )
+      else
+            _,itemText = reaper.GetSetMediaItemTakeInfo_String( tk, "P_NAME" , "", false )
       end
       
       
@@ -174,7 +176,7 @@ while true do
       end
           
      
-      regIdx=reaper.AddProjectMarker2(0, true, regionStart, regionEnd, "", -1, 1)      --create regions
+      regIdx=reaper.AddProjectMarker2(0, true, regionStart, regionEnd, itemText, -1, 1)      --create regions
       regions[k] = regIdx 
       k=k+1
       reaper.SetRegionRenderMatrix( 0, regIdx, reaper.GetMasterTrack( 0 ) , 1 )
@@ -182,16 +184,36 @@ while true do
      
   
 end
+
+
+
 if #regions > 1 then
-
-    name  = GUI.Val("TextboxName").."_$regionnumber"
+    if itemText ~= "" and GUI.Val("TextboxName") == "@" then
+        name = "$region"
+    else
+        if string.find(GUI.Val("TextboxName"),"@") == nil then
+            name  = GUI.Val("TextboxName").."_$regionnumber"
+        else
+            name = string.gsub(GUI.Val("TextboxName"), "@", "$region")
+                   
+        end
+        --name  = GUI.Val("TextboxName").."_$regionnumber"
+    end
 else
-    name = GUI.Val("TextboxName")
+    if itemText ~= "" and GUI.Val("TextboxName") == "@" then
+           name = "$region"
+       else
+          if string.find(GUI.Val("TextboxName"),"@") == nil then
+              name  = GUI.Val("TextboxName")
+          else
+              name = string.gsub(GUI.Val("TextboxName"), "@", "$region")
+                             
+          end
+           
+       end
+   
 end
 
-if itemText ~= "" and name == "@" then
-    name = itemText
-end
 
 
 reaper.GetSetProjectInfo_String( 0, "RENDER_PATTERN" ,name, true ) --set name of rendering
