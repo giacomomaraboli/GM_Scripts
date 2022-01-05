@@ -1,6 +1,6 @@
 -- @description render utility
 -- @author Giacomo Maraboli
--- @version 1.2.1
+-- @version 1.3
 -- @about
 --   render utility
 
@@ -1214,6 +1214,7 @@ GUI.New("TextboxName", "Textbox", {
 GUI.Init()
 GUI.Main()
 GUI.Val("TextboxTail", userTailLenght)
+GUI.elms.TextboxName.focus = true
 if user2ndpass == true then
     GUI.Val("Checklist1", 2)
 else  
