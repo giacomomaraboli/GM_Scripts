@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="GM_Scripts" commit="45da5d126ca8f0e169b47f73be926b5bc1fe48a1">
+<index version="1" name="GM_Scripts" commit="1e240a32efcc1b7127eabd2eb4a64d7ed5709412">
   <category name="GM_Scripts">
     <reapack name="GM_CloseAllFxWindows_ExceptMaster.lua" type="script" desc="Close all fx windows except Master">
       <metadata>
@@ -39,26 +39,6 @@
       </version>
       <version name="1.1.3" author="Giacomo Maraboli" time="2021-12-04T12:18:50Z">
         <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/ca309b7b1a5f19cdd1359b7493f1913d065205b9/GM_Scripts/GM_ClusterGroup_AddEmptyItems.lua</source>
-      </version>
-    </reapack>
-    <reapack name="GM_ClusterGroup_RenameEmptyItems.lua" type="script" desc="rename empty items">
-      <metadata>
-        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
-{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
-\widowctrl\hyphauto
-
-{\pard \ql \f0 \sa180 \li0 \fi0 rename empty items\par}
-}
-]]></description>
-      </metadata>
-      <version name="1.0" author="Giacomo Maraboli" time="2021-11-26T18:01:34Z">
-        <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/9b0f5ad1b5e5fefcc60e4a0244fddbb82d0a2ae9/GM_Scripts/GM_ClusterGroup_RenameEmptyItems.lua</source>
-      </version>
-      <version name="1.1" author="Giacomo Maraboli" time="2021-11-30T14:35:00Z">
-        <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/86655844efeba9637a0bc9fdc4d8977a9b994ac3/GM_Scripts/GM_ClusterGroup_RenameEmptyItems.lua</source>
-      </version>
-      <version name="1.2" author="Giacomo Maraboli" time="2022-01-05T10:47:44Z">
-        <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/f793ed710e2e866d63f074681c96a1aae3939f4c/GM_Scripts/GM_ClusterGroup_RenameEmptyItems.lua</source>
       </version>
     </reapack>
     <reapack name="GM_CreateRegionsOnClusters.lua" type="script" desc="Create regions on clusters of items">
@@ -135,6 +115,20 @@
         <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/03f328f132a5b00ced6352c8731e0cbb33813eb8/GM_Scripts/GM_NextVariation.lua</source>
       </version>
     </reapack>
+    <reapack name="GM_RenameItems.lua" type="script" desc="rename items">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 rename items -- works with cluster groups\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.3" author="Giacomo Maraboli" time="2022-01-05T11:48:16Z">
+        <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/d5e4304baf46316830449a3ae155536579dc4dda/GM_Scripts/GM_RenameItems.lua</source>
+      </version>
+    </reapack>
     <reapack name="GM_Render.lua" type="script" desc="render utility">
       <metadata>
         <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
@@ -150,6 +144,9 @@
       </version>
       <version name="1.2.1" author="Giacomo Maraboli" time="2022-01-05T11:14:35Z">
         <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/45da5d126ca8f0e169b47f73be926b5bc1fe48a1/GM_Scripts/GM_Render.lua</source>
+      </version>
+      <version name="1.3" author="Giacomo Maraboli" time="2022-01-05T11:48:46Z">
+        <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/1e240a32efcc1b7127eabd2eb4a64d7ed5709412/GM_Scripts/GM_Render.lua</source>
       </version>
     </reapack>
   </category>
