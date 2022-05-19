@@ -1,6 +1,174 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="GM_Scripts" commit="a88017c65e392bec687920be7a9915d6b5c6b740">
+<index version="1" name="GM_Scripts" commit="a37c892f9cad89936aa2f286aa5db8e0ef0a64db">
   <category name="GM_Scripts">
+    <reapack name="Dev_AutoFolderItems.lua" type="script" desc="Auto folder itmes">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 auto folder items\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="Giacomo Maraboli" time="2022-05-19T12:30:07Z">
+        <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/a37c892f9cad89936aa2f286aa5db8e0ef0a64db/GM_Scripts/Dev_AutoFolderItems.lua</source>
+      </version>
+    </reapack>
+    <reapack name="Dev_AutomationItem_Create.lua" type="script" desc="Create automation item">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 create automation item under item (work best with mouse modifier double click)\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="Giacomo Maraboli" time="2022-05-19T12:30:07Z">
+        <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/a37c892f9cad89936aa2f286aa5db8e0ef0a64db/GM_Scripts/Dev_AutomationItem_Create.lua</source>
+      </version>
+    </reapack>
+    <reapack name="Dev_DuplicateEverythingTimeSelection.lua" type="script" desc="Duplicate everything in the time selection">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 duplicate (almost) everything in the time selection\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="Giacomo Maraboli" time="2022-05-19T12:30:07Z">
+        <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/a37c892f9cad89936aa2f286aa5db8e0ef0a64db/GM_Scripts/Dev_DuplicateEverythingTimeSelection.lua</source>
+      </version>
+    </reapack>
+    <reapack name="Dev_FolderTrackList.lua" type="script" desc="Folder track list">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 open a list with all the folder track and then does something with the arrange window - I don't remember the idea behind this\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="Giacomo Maraboli" time="2022-05-19T12:30:07Z">
+        <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/a37c892f9cad89936aa2f286aa5db8e0ef0a64db/GM_Scripts/Dev_FolderTrackList.lua</source>
+      </version>
+    </reapack>
+    <reapack name="Dev_NewRename.lua" type="script" desc="New rename items">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 rename items - to be used with Auto folder item\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.3" author="Giacomo Maraboli" time="2022-05-19T12:30:07Z">
+        <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/a37c892f9cad89936aa2f286aa5db8e0ef0a64db/GM_Scripts/Dev_NewRename.lua</source>
+      </version>
+    </reapack>
+    <reapack name="Dev_OpenCloseFolder.lua" type="script" desc="OpenClose folder">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 open and close a folder - makes sense to use with double click or other mouse mothifiers\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="Giacomo Maraboli" time="2022-05-19T12:30:07Z">
+        <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/a37c892f9cad89936aa2f286aa5db8e0ef0a64db/GM_Scripts/Dev_OpenCloseFolder.lua</source>
+      </version>
+    </reapack>
+    <reapack name="Dev_RandomPlayer.lua" type="script" desc="Random player">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Random player similar to wwise random container\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="Giacomo Maraboli" time="2022-05-19T12:30:07Z">
+        <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/a37c892f9cad89936aa2f286aa5db8e0ef0a64db/GM_Scripts/Dev_RandomPlayer.lua</source>
+      </version>
+    </reapack>
+    <reapack name="Dev_RenderV2.lua" type="script" desc="Render V2">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Render utility to be used with auto folder items\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="Giacomo Maraboli" time="2022-05-19T12:30:07Z">
+        <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/a37c892f9cad89936aa2f286aa5db8e0ef0a64db/GM_Scripts/Dev_RenderV2.lua</source>
+      </version>
+    </reapack>
+    <reapack name="Dev_SubProject_Create.lua" type="script" desc="Sub projecet create">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 create a sub project at the position of the cursor and add marker\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="Giacomo Maraboli" time="2022-05-19T12:30:07Z">
+        <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/a37c892f9cad89936aa2f286aa5db8e0ef0a64db/GM_Scripts/Dev_SubProject_Create.lua</source>
+      </version>
+    </reapack>
+    <reapack name="Dev_SubProject_NewVersion.lua" type="script" desc="Sub project new version">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 create a new version of a sub project and insert it as a new take\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="Giacomo Maraboli" time="2022-05-19T12:30:07Z">
+        <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/a37c892f9cad89936aa2f286aa5db8e0ef0a64db/GM_Scripts/Dev_SubProject_NewVersion.lua</source>
+      </version>
+    </reapack>
+    <reapack name="Dev_SubProject_SplitItemAtMarkers.lua" type="script" desc="Sub project split item at markers">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 split the subproject item based on the markers in the subproject\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="Giacomo Maraboli" time="2022-05-19T12:30:07Z">
+        <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/a37c892f9cad89936aa2f286aa5db8e0ef0a64db/GM_Scripts/Dev_SubProject_SplitItemAtMarkers.lua</source>
+      </version>
+    </reapack>
+    <reapack name="Dev_SubProject_Sync.lua" type="script" desc="Sub project sync">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 render the selected sub porjects from the master project\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="Giacomo Maraboli" time="2022-05-19T12:30:07Z">
+        <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/a37c892f9cad89936aa2f286aa5db8e0ef0a64db/GM_Scripts/Dev_SubProject_Sync.lua</source>
+      </version>
+    </reapack>
     <reapack name="GM_CloseAllFxWindows_ExceptMaster.lua" type="script" desc="Close all fx windows except Master">
       <metadata>
         <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
