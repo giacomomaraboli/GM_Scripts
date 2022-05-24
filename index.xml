@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="GM_Scripts" commit="a37c892f9cad89936aa2f286aa5db8e0ef0a64db">
+<index version="1" name="GM_Scripts" commit="420251c55ac9994bb403c74738bef146e613dfe8">
   <category name="GM_Scripts">
     <reapack name="Dev_AutoFolderItems.lua" type="script" desc="Auto folder itmes">
       <metadata>
@@ -207,6 +207,20 @@
       </version>
       <version name="1.1.3" author="Giacomo Maraboli" time="2021-12-04T12:18:50Z">
         <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/ca309b7b1a5f19cdd1359b7493f1913d065205b9/GM_Scripts/GM_ClusterGroup_AddEmptyItems.lua</source>
+      </version>
+    </reapack>
+    <reapack name="GM_CreateRegionsOnCluster_NameFromTrack.lua" type="script" desc="Create regions on clusters of items and name it after the first track">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 create regions on clusters of items and name it after the first track\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="Giacomo Maraboli" time="2022-05-24T12:45:30Z">
+        <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/420251c55ac9994bb403c74738bef146e613dfe8/GM_Scripts/GM_CreateRegionsOnCluster_NameFromTrack.lua</source>
       </version>
     </reapack>
     <reapack name="GM_CreateRegionsOnClusters.lua" type="script" desc="Create regions on clusters of items">
