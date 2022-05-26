@@ -1,6 +1,6 @@
 -- @description Auto folder itmes
 -- @author Giacomo Maraboli
--- @version 1.0
+-- @version 1.1
 -- @about
 --   auto folder items
 reaper.ClearConsole()
@@ -9,6 +9,7 @@ reaper.ClearConsole()
   
   --selecting folder item selects all child items
   userChildrenSelection = true --defauklt true
+  offset = 0.5
 
 
 r = reaper
@@ -304,7 +305,7 @@ function doFolderItem(track)
                     changed = false
                     for i=#merged, 2, -1 do --iterating backwards
                         currItemStart = merged[i][1]
-                        prevItemEnd = merged[i-1][2]
+                        prevItemEnd = merged[i-1][2] + offset
                         if currItemStart<prevItemEnd then
                             merged[i-1][2] = math.max(merged[i][2],merged[i-1][2])
                             merged[i-1][3] = merged[i][3] and merged[i-1][3] --the value after sorting shows wheter all items under this folder itam are selected
@@ -363,7 +364,7 @@ function doFolderItem(track)
             _, parentName = reaper.GetSetMediaTrackInfo_String(parentTrack, "P_NAME", "", false)
             --local track_color =  reaper.GetTrackColor( parentTrack )
             for i=1, #merged do
-                local currStart = merged[i][1]
+                local currStart = merged[i][1] 
                -- reaper.ShowConsoleMsg("after  ")
                 --reaper.ShowConsoleMsg(i.."\n")
                 
@@ -479,4 +480,3 @@ folders = {}
 --reaper.SNM_SetIntConfigVar("showpeaks",2051)  --nikolalkc edit: show faint peaks in folders
 main()
 r.atexit(exit)
-
