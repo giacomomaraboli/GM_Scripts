@@ -14,7 +14,7 @@ defaultName = "Midi Track"
   reaper.Undo_BeginBlock()
 
 num = reaper.CountSelectedMediaItems()
-if num == 0 then return en
+if num == 0 then return end
 
 firstItem = reaper.GetSelectedMediaItem(0,0)
 lastItem = reaper.GetSelectedMediaItem(0,num-1)
