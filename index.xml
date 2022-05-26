@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="GM_Scripts" commit="420251c55ac9994bb403c74738bef146e613dfe8">
+<index version="1" name="GM_Scripts" commit="4c6d66750cb14b9d3e088a34b4eaada107f2584b">
   <category name="GM_Scripts">
     <reapack name="Dev_AutoFolderItems.lua" type="script" desc="Auto folder itmes">
       <metadata>
@@ -13,6 +13,9 @@
       </metadata>
       <version name="1.0" author="Giacomo Maraboli" time="2022-05-19T12:30:07Z">
         <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/a37c892f9cad89936aa2f286aa5db8e0ef0a64db/GM_Scripts/Dev_AutoFolderItems.lua</source>
+      </version>
+      <version name="1.1" author="Giacomo Maraboli" time="2022-05-26T07:00:16Z">
+        <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/4c6d66750cb14b9d3e088a34b4eaada107f2584b/GM_Scripts/Dev_AutoFolderItems.lua</source>
       </version>
     </reapack>
     <reapack name="Dev_AutomationItem_Create.lua" type="script" desc="Create automation item">
