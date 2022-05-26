@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="GM_Scripts" commit="4c6d66750cb14b9d3e088a34b4eaada107f2584b">
+<index version="1" name="GM_Scripts" commit="52be66432549948dd9e628e990647d46c28c5961">
   <category name="GM_Scripts">
     <reapack name="Dev_AutoFolderItems.lua" type="script" desc="Auto folder itmes">
       <metadata>
@@ -224,6 +224,9 @@
       </metadata>
       <version name="1.0" author="Giacomo Maraboli" time="2022-05-24T12:45:30Z">
         <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/420251c55ac9994bb403c74738bef146e613dfe8/GM_Scripts/GM_CreateRegionsOnCluster_NameFromTrack.lua</source>
+      </version>
+      <version name="1.1" author="Giacomo Maraboli" time="2022-05-26T07:34:54Z">
+        <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/52be66432549948dd9e628e990647d46c28c5961/GM_Scripts/GM_CreateRegionsOnCluster_NameFromTrack.lua</source>
       </version>
     </reapack>
     <reapack name="GM_CreateRegionsOnClusters.lua" type="script" desc="Create regions on clusters of items">
