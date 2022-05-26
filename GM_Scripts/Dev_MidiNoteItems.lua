@@ -1,6 +1,6 @@
 -- @description Create midi notes from selected items
 -- @author Giacomo Maraboli
--- @version 1.0
+-- @version 1.1
 -- @about
 --   create midi notes in new track from selected items
 
