@@ -1,6 +1,6 @@
 -- @description Create regions on clusters of items and name it after the first track
 -- @author Giacomo Maraboli
--- @version 1.0
+-- @version 1.1
 -- @about
 --   create regions on clusters of items and name it after the first track
 
@@ -52,18 +52,30 @@ function checkItems (itemNumber, regStart, regEnd) do
       return regStart, regEnd, found
 end
 end
-                            
-item = reaper.GetSelectedMediaItem(0,0)
-track =  reaper.GetMediaItemTrack( item )  
-retval, name = reaper.GetSetMediaTrackInfo_String( track, "P_NAME", "", false )
+
+j = 0  
+k=1
  
 while true do
+
       
       selItemNum = reaper.CountSelectedMediaItems()
       
       found = true
       item = reaper.GetSelectedMediaItem(0, 0)
-      if item == nil then break end
+      
+      if item == nil and k == 2 then 
+          reaper.DeleteProjectMarkerByIndex( 0, regionindex -1 )
+          regionindex=reaper.AddProjectMarker2(0, true, oldStart, oldEnd, refName, -1, 1)
+      
+      end
+      
+      if item == nil then return end
+      
+      track =  reaper.GetMediaItemTrack( item )  
+      retval, name = reaper.GetSetMediaTrackInfo_String( track, "P_NAME", "", false )
+      
+     
       
       regionStart =  reaper.GetMediaItemInfo_Value(item, "D_POSITION")
       regionEnd = regionStart + reaper.GetMediaItemInfo_Value(item, "D_LENGTH")
@@ -75,9 +87,31 @@ while true do
           regionStart, regionEnd, found = checkItems(selItemNum, regionStart, regionEnd)
          
       end
+       
+      if j == 0 then
+          refName = name
+          j=1
+          oldStart = regionStart
+          oldEnd = regionEnd
+      end   
+      if name ~= refName and k == 2 then
+          reaper.DeleteProjectMarkerByIndex( 0, regionindex -1 )
+          regionindex=reaper.AddProjectMarker2(0, true, oldStart, oldEnd, refName, -1, 1)
           
-        
-      regionindex=reaper.AddProjectMarker2(0, true, regionStart, regionEnd, name, -1, 1)
+      end
+      
+      
+      if name ~= refName then
+          k = 1
+          refName = name
+          oldStart = regionStart
+          oldEnd = regionEnd
+      end
+      
+      
+      add = "_" .. string.format("%02d", tostring(k))
+      k=k+1
+      regionindex=reaper.AddProjectMarker2(0, true, regionStart, regionEnd, name..add, -1, 1)
       
       reaper.SetMediaItemSelected( item, 0 )
      
