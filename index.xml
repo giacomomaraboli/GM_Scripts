@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="GM_Scripts" commit="1ea7fea4b57276de2bec382d8d805bf7fc1a5ab9">
+<index version="1" name="GM_Scripts" commit="b19570fcd202fcaa8d54297cc95542d81529c24c">
   <category name="GM_Scripts">
     <reapack name="Dev_AutoFolderItems.lua" type="script" desc="Auto folder itmes">
       <metadata>
@@ -72,6 +72,9 @@
       </metadata>
       <version name="1.0" author="Giacomo Maraboli" time="2022-05-26T08:41:03Z">
         <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/1ea7fea4b57276de2bec382d8d805bf7fc1a5ab9/GM_Scripts/Dev_MidiNoteItems.lua</source>
+      </version>
+      <version name="1.1" author="Giacomo Maraboli" time="2022-05-26T08:44:13Z">
+        <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/b19570fcd202fcaa8d54297cc95542d81529c24c/GM_Scripts/Dev_MidiNoteItems.lua</source>
       </version>
     </reapack>
     <reapack name="Dev_NewRename.lua" type="script" desc="New rename items">
