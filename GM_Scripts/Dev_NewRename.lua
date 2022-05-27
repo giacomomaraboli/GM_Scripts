@@ -1,6 +1,6 @@
 -- @description New rename items
 -- @author Giacomo Maraboli
--- @version 1.3
+-- @version 1.4
 -- @about
 --   rename items - to be used with Auto folder item
 
@@ -349,6 +349,7 @@ GUI.anchor, GUI.corner = "screen", "C"
 
 
 --override of function in core.lua
+
 GUI.Main_Update_State = function()
 
     -- Update mouse and keyboard state, window dimensions
@@ -443,8 +444,8 @@ function GUI.Textbox:new(name, z, x, y, w, h, caption, pad)
     txt.wnd_pos = 0
     
     txt.caret = string.len(default_text)
-    
-          
+  
+
   
   txt.sel_s, txt.sel_e = nil, nil
 
@@ -461,7 +462,21 @@ function GUI.Textbox:new(name, z, x, y, w, h, caption, pad)
 
 end
 
-
+function GUI.Textbox:onupdate()
+  if self.focus then
+     if self.blink == 0 then
+      self.show_caret = true
+      self:redraw()
+    elseif self.blink == math.floor(GUI.txt_blink_rate / 2) then
+      self.show_caret = false
+      self:redraw()
+    end
+    self.blink = (self.blink + 1) % GUI.txt_blink_rate
+ else
+    self.sel_s = 0
+    self.sel_e = string.len(default_text)
+  end
+end
 
 
 
@@ -502,7 +517,7 @@ end
 
 
 
---  See if the any of the given element's methods need to be called
+-- See if the any of the given element's methods need to be called
 GUI.Update = function (elm)
 
     local x, y = GUI.mouse.x, GUI.mouse.y
@@ -820,6 +835,9 @@ GUI.Update = function (elm)
 end
 
 
+
+
+
 GUI.New("Name", "Textbox", {
     z = 11,
     x = 64,
@@ -858,8 +876,13 @@ GUI.New("Ok", "Button", {
 })
 
 
+   
+  
+     
+
 GUI.Init()
 GUI.Main()
+
 GUI.elms.Name.focus = true
 GUI.ReturnSubmit = rename 
 -- pressing enter on the keyboard is the same as pressing ok on the GUI
@@ -868,6 +891,12 @@ GUI.ReturnSubmit = rename
 -- if GUI.char == 13 and GUI.ReturnSubmit then GUI.ReturnSubmit() end   ---ADDED
 GUI.Val("Name", default_text)
 
-
+-- GUI.elms.Name.focus = true
+GUI.elms.Name.sel_s = 0
+GUI.elms.Name.sel_e = string.len(default_text)
+GUI.elms.Name.caret = string.len(default_text)
+           
+   
+  
 
 
