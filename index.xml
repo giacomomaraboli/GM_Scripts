@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="GM_Scripts" commit="06fbdab28f0feb59da591ddd76e830670ab1ff71">
+<index version="1" name="GM_Scripts" commit="d8c3015152fff5e5253b2566ba846e4c212bfeab">
   <category name="GM_Scripts">
     <reapack name="Dev_AutoFolderItems.lua" type="script" desc="Auto folder itmes">
       <metadata>
@@ -193,6 +193,9 @@
       </metadata>
       <version name="1.0" author="Giacomo Maraboli" time="2022-05-19T12:30:07Z">
         <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/a37c892f9cad89936aa2f286aa5db8e0ef0a64db/GM_Scripts/Dev_SubProject_Sync.lua</source>
+      </version>
+      <version name="1.1" author="Giacomo Maraboli" time="2022-05-27T08:15:48Z">
+        <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/d8c3015152fff5e5253b2566ba846e4c212bfeab/GM_Scripts/Dev_SubProject_Sync.lua</source>
       </version>
     </reapack>
     <reapack name="GM_CloseAllFxWindows_ExceptMaster.lua" type="script" desc="Close all fx windows except Master">
