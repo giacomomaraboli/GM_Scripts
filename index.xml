@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="GM_Scripts" commit="2664bed3908d2ee80aab6918d7fb56a97f03bb11">
+<index version="1" name="GM_Scripts" commit="8580f70276616127989c262294e09546dbf5d240">
   <category name="GM_Scripts">
     <reapack name="Dev_AutoFolderItems.lua" type="script" desc="Auto folder itmes">
       <metadata>
@@ -30,6 +30,20 @@
       </metadata>
       <version name="1.0" author="Giacomo Maraboli" time="2022-05-19T12:30:07Z">
         <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/a37c892f9cad89936aa2f286aa5db8e0ef0a64db/GM_Scripts/Dev_AutomationItem_Create.lua</source>
+      </version>
+    </reapack>
+    <reapack name="Dev_ColorMarkersFromTrack.lua" type="script" desc="Color markers from closest item track">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Color markers from closest item track\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="Giacomo Maraboli" time="2022-05-27T12:21:54Z">
+        <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/8580f70276616127989c262294e09546dbf5d240/GM_Scripts/Dev_ColorMarkersFromTrack.lua</source>
       </version>
     </reapack>
     <reapack name="Dev_DuplicateEverythingTimeSelection.lua" type="script" desc="Duplicate everything in the time selection">
