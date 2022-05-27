@@ -1,6 +1,6 @@
 -- @description Sub projecet create
 -- @author Giacomo Maraboli
--- @version 1.0
+-- @version 1.1
 -- @about
 --   create a sub project at the position of the cursor and add marker
 reaper.ClearConsole()
@@ -31,8 +31,9 @@ reaper.AddProjectMarker2(0, false, cursor, endPoint, name, -1, color)
 --clear time selection
 reaper.Main_OnCommand(40020,0)
 
+reaper.Main_OnCommand(40898,0) -- renumber markers
+
 
 reaper.Undo_EndBlock("Unndo subproject", -1)
 reaper.PreventUIRefresh(-1)
 reaper.UpdateArrange()
-
