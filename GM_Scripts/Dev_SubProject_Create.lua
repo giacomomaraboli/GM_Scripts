@@ -1,4 +1,4 @@
--- @description Sub projecet create
+-- @description Sub project create
 -- @author Giacomo Maraboli
 -- @version 1.1
 -- @about
