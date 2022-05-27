@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="GM_Scripts" commit="b19570fcd202fcaa8d54297cc95542d81529c24c">
+<index version="1" name="GM_Scripts" commit="06fbdab28f0feb59da591ddd76e830670ab1ff71">
   <category name="GM_Scripts">
     <reapack name="Dev_AutoFolderItems.lua" type="script" desc="Auto folder itmes">
       <metadata>
@@ -90,6 +90,9 @@
       <version name="1.3" author="Giacomo Maraboli" time="2022-05-19T12:30:07Z">
         <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/a37c892f9cad89936aa2f286aa5db8e0ef0a64db/GM_Scripts/Dev_NewRename.lua</source>
       </version>
+      <version name="1.4" author="Giacomo Maraboli" time="2022-05-27T07:01:32Z">
+        <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/06fbdab28f0feb59da591ddd76e830670ab1ff71/GM_Scripts/Dev_NewRename.lua</source>
+      </version>
     </reapack>
     <reapack name="Dev_OpenCloseFolder.lua" type="script" desc="OpenClose folder">
       <metadata>
@@ -131,6 +134,9 @@
       </metadata>
       <version name="1.0" author="Giacomo Maraboli" time="2022-05-19T12:30:07Z">
         <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/a37c892f9cad89936aa2f286aa5db8e0ef0a64db/GM_Scripts/Dev_RenderV2.lua</source>
+      </version>
+      <version name="1.1" author="Giacomo Maraboli" time="2022-05-27T07:00:59Z">
+        <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/0ffb3c9ebff0b6fe3d33bc9629bc82d2a896984f/GM_Scripts/Dev_RenderV2.lua</source>
       </version>
     </reapack>
     <reapack name="Dev_SubProject_Create.lua" type="script" desc="Sub projecet create">
