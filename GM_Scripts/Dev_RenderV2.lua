@@ -1,6 +1,6 @@
 -- @description Render V2
 -- @author Giacomo Maraboli
--- @version 1.0
+-- @version 1.1
 -- @about
 --   Render utility to be used with auto folder items
 
@@ -1198,9 +1198,14 @@ end
 
 GUI.Val("TextboxName",default_text) 
 GUI.ReturnSubmit = setRenderOptions
-      
-      
-      
-      
-      
 
+if default_text ~= nil then
+GUI.elms.TextboxName.focus = true
+GUI.elms.TextboxName.sel_s = 0
+GUI.elms.TextboxName.sel_e = string.len(default_text)
+GUI.elms.TextboxName.caret = string.len(default_text)
+end
+      
+      
+      
+      
