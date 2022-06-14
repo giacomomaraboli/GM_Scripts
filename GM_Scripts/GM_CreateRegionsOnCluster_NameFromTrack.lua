@@ -1,6 +1,6 @@
 -- @description Create regions on clusters of items and name it after the first track
 -- @author Giacomo Maraboli
--- @version 1.1
+-- @version 1.2
 -- @about
 --   create regions on clusters of items and name it after the first track
 
@@ -65,7 +65,8 @@ while true do
       item = reaper.GetSelectedMediaItem(0, 0)
       
       if item == nil and k == 2 then 
-          reaper.DeleteProjectMarkerByIndex( 0, regionindex -1 )
+
+          reaper.DeleteProjectMarker( 0, regionindex, true )
           regionindex=reaper.AddProjectMarker2(0, true, oldStart, oldEnd, refName, -1, 1)
       
       end
@@ -112,6 +113,7 @@ while true do
       add = "_" .. string.format("%02d", tostring(k))
       k=k+1
       regionindex=reaper.AddProjectMarker2(0, true, regionStart, regionEnd, name..add, -1, 1)
+     
       
       reaper.SetMediaItemSelected( item, 0 )
      
