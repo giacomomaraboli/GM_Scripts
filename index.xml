@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="GM_Scripts" commit="36c04d8d01a7f338497f97540ef488cf792ecf3c">
+<index version="1" name="GM_Scripts" commit="ebd897bf47a6bb0af0760a6b0c118002ef119a56">
   <category name="GM_Scripts">
     <reapack name="Dev_AutoFolderItems.lua" type="script" desc="Auto folder itmes">
       <metadata>
@@ -137,6 +137,9 @@
       </version>
       <version name="1.1" author="Giacomo Maraboli" time="2022-06-10T10:41:09Z">
         <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/e0f6bfc77fe436a398ae46765b334e76366bbc96/GM_Scripts/Dev_RandomPlayer.lua</source>
+      </version>
+      <version name="1.2" author="Giacomo Maraboli" time="2022-06-15T10:32:38Z">
+        <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/ebd897bf47a6bb0af0760a6b0c118002ef119a56/GM_Scripts/Dev_RandomPlayer.lua</source>
       </version>
     </reapack>
     <reapack name="Dev_RenderV2.lua" type="script" desc="Render V2">
