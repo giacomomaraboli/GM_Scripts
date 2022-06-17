@@ -1,6 +1,6 @@
 -- @description Random player
 -- @author Giacomo Maraboli
--- @version 1.2
+-- @version 1.3
 -- @about
 --   Random player similar to wwise random container
 
@@ -478,7 +478,7 @@ GUI.New("Slider1", "Slider", {
     x = 260,
     y = 110,
     w = 80,
-    caption = "Dly1",
+    caption = "Delay",
     min = 0,
     max = 5,
     defaults = 0,
@@ -500,7 +500,7 @@ GUI.New("Slider2", "Slider", {
     x = 260,
     y = 145,
     w = 80,
-    caption = "Dly2",
+    caption = "",
     min = 0,
     max = 5,
     defaults = 0,
