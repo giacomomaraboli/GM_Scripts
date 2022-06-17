@@ -1,6 +1,6 @@
 -- @description Random player
 -- @author Giacomo Maraboli
--- @version 1.3
+-- @version 1.4
 -- @about
 --   Random player similar to wwise random container
 
@@ -312,7 +312,7 @@ if missing_lib then return 0 end
 
 
 GUI.name = "Random Play"
-GUI.x, GUI.y, GUI.w, GUI.h = 0, 0, 400, 180
+GUI.x, GUI.y, GUI.w, GUI.h = 0, 0, 400, 190
 GUI.anchor, GUI.corner = "screen", "C"
 
 
