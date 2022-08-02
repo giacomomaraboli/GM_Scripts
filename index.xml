@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="GM_Scripts" commit="8e1b42b522beb8575a80aeb982c1b28dabbed217">
+<index version="1" name="GM_Scripts" commit="5211e38e3c10b840d1ead10826fb27dc30117feb">
   <category name="GM_Scripts">
     <reapack name="Dev_AutoFolderItems.lua" type="script" desc="Auto folder itmes">
       <metadata>
@@ -86,6 +86,9 @@
       </metadata>
       <version name="1.0" author="Giacomo Maraboli" time="2022-06-17T10:35:15Z">
         <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/dad8f9b28499b06e9993aace7fe3d29aa13bc393/GM_Scripts/Dev_Items_StackUnstack.lua</source>
+      </version>
+      <version name="1.1" author="Giacomo Maraboli" time="2022-08-02T09:19:20Z">
+        <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/5211e38e3c10b840d1ead10826fb27dc30117feb/GM_Scripts/Dev_Items_StackUnstack.lua</source>
       </version>
     </reapack>
     <reapack name="Dev_MidiNoteItems.lua" type="script" desc="Create midi notes from selected items">
