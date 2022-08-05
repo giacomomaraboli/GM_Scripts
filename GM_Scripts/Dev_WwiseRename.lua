@@ -1,6 +1,6 @@
 -- @description Wwise Item rename
 -- @author Giacomo Maraboli
--- @version 1.0
+-- @version 1.1
 -- @about
 --   rename items, with wwise option - to be used with Auto folder item
 
@@ -276,7 +276,9 @@ item = reaper.GetSelectedMediaItem(0, 0)
 if not item then return end
 tk = reaper.GetActiveTake(item)
 emptyItems={}
+
 if tk then
+    properItem = true
     _, default_text = reaper.GetSetMediaItemTakeInfo_String( tk, "P_NAME" , "", false )
    
     
@@ -292,6 +294,7 @@ if tk then
       
     
 else
+    properItem = false
     selItemNum =  reaper.CountSelectedMediaItems()  --count number of items
     diff = false
     
@@ -875,7 +878,7 @@ GUI.New("Name", "Textbox", {
     
     
 })
-
+if not properItem then
 GUI.New("Wwise", "Textbox", {
     z = 11,
     x = 64,
@@ -895,6 +898,7 @@ GUI.New("Wwise", "Textbox", {
     
     
 })
+end
 
 
 GUI.New("Ok", "Button", {
@@ -934,4 +938,3 @@ GUI.elms.Name.caret = string.len(default_text)
            
    
   
-
