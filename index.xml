@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="GM_Scripts" commit="9a389c696c26771d8d1b8accb4892dd2d3655ed7">
+<index version="1" name="GM_Scripts" commit="3ca8dfd13c0b138c32e67441bdc4b4717d751beb">
   <category name="GM_Scripts">
     <reapack name="Dev_AutoFolderItems.lua" type="script" desc="Auto folder itmes">
       <metadata>
@@ -265,6 +265,9 @@
       </metadata>
       <version name="1.0" author="Giacomo Maraboli" time="2022-08-05T11:46:27Z">
         <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/fe7ebf459d5c0d8e8ae389222bfcfd7ec10ef4a2/GM_Scripts/Dev_WwiseRename.lua</source>
+      </version>
+      <version name="1.1" author="Giacomo Maraboli" time="2022-08-05T13:25:44Z">
+        <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/3ca8dfd13c0b138c32e67441bdc4b4717d751beb/GM_Scripts/Dev_WwiseRename.lua</source>
       </version>
     </reapack>
     <reapack name="Dev_WwiseRender.lua" type="script" desc="Wwise Render">
