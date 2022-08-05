@@ -1,6 +1,6 @@
 -- @description Auto folder itmes
 -- @author Giacomo Maraboli
--- @version 1.1
+-- @version 1.2
 -- @about
 --   auto folder items
 reaper.ClearConsole()
@@ -9,7 +9,7 @@ reaper.ClearConsole()
   
   --selecting folder item selects all child items
   userChildrenSelection = true --defauklt true
-  offset = 0.5
+  offset = 0.1
 
 
 r = reaper
@@ -139,8 +139,10 @@ function NoteInChildrenItems(parentTrack, item)
               _, text  = reaper.GetSetMediaItemInfo_String( item, "P_NOTES","",false )
               
               
+              
               if text == "" then
                   if foundText then
+                  
                       reaper.GetSetMediaItemInfo_String( item, "P_NOTES",textYes,true )
                   else
                       itemsNoNote[#itemsNoNote+1]=item
@@ -171,23 +173,31 @@ function NoteInChildrenItems(parentTrack, item)
                       end
                        
                   end
-
+                  
+                  wwiseSep = " .SEP10. "
+                  _,wwisePos = string.find(text, wwiseSep)
+                  wwiseText = string.sub(text, wwisePos+1, #text)
+                  
+                  
+                  
                   separator= string.format(" .SEP%01d. ",j-1)
                   nextSeparator= string.format(" .SEP%01d. ",j)
-  
+        
            
                   _, End = string.find(text, separator )
                   nextBegin, _ = string.find(text, nextSeparator )
 
                   if End and nextBegin then
+                  
                       text = string.sub(text,End+1,nextBegin-1)
-                  elseif not nextBegin and End then
+                      
+                      elseif not nextBegin and End then
                       text = string.sub(text,End+1,nextBegin)
                   elseif not End then
                       text = ""
                   end
-                    
-                
+                  
+                  text = text.."\n"..wwiseText
                 reaper.GetSetMediaItemInfo_String( parentItem, "P_NOTES",text,true )
                 foundText = true
                -- for w=1,#itemsNoNote do ----add note to children items that don't have notes
