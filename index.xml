@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="GM_Scripts" commit="4bf8a9c83338c4a166fc33703652c791eb64a5a9">
+<index version="1" name="GM_Scripts" commit="fe7ebf459d5c0d8e8ae389222bfcfd7ec10ef4a2">
   <category name="GM_Scripts">
     <reapack name="Dev_AutoFolderItems.lua" type="script" desc="Auto folder itmes">
       <metadata>
@@ -251,6 +251,20 @@
       </version>
       <version name="1.1" author="Giacomo Maraboli" time="2022-05-27T08:15:48Z">
         <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/d8c3015152fff5e5253b2566ba846e4c212bfeab/GM_Scripts/Dev_SubProject_Sync.lua</source>
+      </version>
+    </reapack>
+    <reapack name="Dev_WwiseRename.lua" type="script" desc="Wwise Item rename">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 rename items, with wwise option - to be used with Auto folder item\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="Giacomo Maraboli" time="2022-08-05T11:46:27Z">
+        <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/fe7ebf459d5c0d8e8ae389222bfcfd7ec10ef4a2/GM_Scripts/Dev_WwiseRename.lua</source>
       </version>
     </reapack>
     <reapack name="GM_CloseAllFxWindows_ExceptMaster.lua" type="script" desc="Close all fx windows except Master">
