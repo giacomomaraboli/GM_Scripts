@@ -1,6 +1,6 @@
 -- @description Wwise Render
 -- @author Giacomo Maraboli
--- @version 1.0
+-- @version 1.1
 -- @about
 --   Render for folder item workflow wiht Wwise integration
 
@@ -231,7 +231,7 @@ for i=1, #emptyItems do
         k=1
     end 
     
-    if done == false then --overlapping createing the next array and put in the first element
+    if done == false then --overlapping creating the next array and put in the first element
       
       k=1
       renderGroup[j] ={}
@@ -240,7 +240,7 @@ for i=1, #emptyItems do
     end
   end
 end
- render()
+  render()
  --reaper.ShowConsoleMsg(#renderGroup)
 
 
@@ -348,7 +348,7 @@ function render() --render region clusters
       
       while regions[k]~= nil do  --delete all regions
          
-         reaper.DeleteProjectMarker( 0, regions[k], true )
+         --reaper.DeleteProjectMarker( 0, regions[k], true )
           k=k+1
       end
       reaper.Main_OnCommand(40340,0)--unsolo all tracks
@@ -470,6 +470,7 @@ function wwiseImport()
             
     if wwiseStruct ~= "" then
         commonStruct = ""   
+        
             
         for str in string.gmatch(wwiseStruct, "([^".."-".."]+)") do
            
@@ -504,7 +505,9 @@ function wwiseImport()
                         newStr = newStr..add..tmpText
                     end
                     commonStruct = commonStruct..newStr
-                    originalCommonStruct = tmpText
+                    
+                    originalCommonStruct = add:sub(2, -2)
+                    --reaper.ShowConsoleMsg(originalCommonStruct)
                     
                     
                 end
@@ -538,7 +541,7 @@ function wwiseImport()
                     newStr = "\\"
                     newStr = newStr ..add..subStr
                     originalCommonStruct = subStr
-                
+                    --reaper.ShowConsoleMsg(originalCommonStruct)
             
                 end
     
@@ -720,7 +723,7 @@ function wwiseSetup()
     
 
    
-
+    originalCommonStruct = ""
     wwiseStruct = GUI.Val("Structure")
     wwisePreText={}
     wwiseName = {}
