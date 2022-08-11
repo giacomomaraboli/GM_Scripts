@@ -1,6 +1,6 @@
 -- @description Wwise Render
 -- @author Giacomo Maraboli
--- @version 1.1
+-- @version 1.2
 -- @about
 --   Render for folder item workflow wiht Wwise integration
 
@@ -348,7 +348,7 @@ function render() --render region clusters
       
       while regions[k]~= nil do  --delete all regions
          
-         --reaper.DeleteProjectMarker( 0, regions[k], true )
+         reaper.DeleteProjectMarker( 0, regions[k], true )
           k=k+1
       end
       reaper.Main_OnCommand(40340,0)--unsolo all tracks
