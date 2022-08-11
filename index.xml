@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="GM_Scripts" commit="906814ae42d363cc3df3b8aad02964fba546fc20">
+<index version="1" name="GM_Scripts" commit="2bb3b7e646d47cb9957871a41d8a6d7d114f406c">
   <category name="GM_Scripts">
     <reapack name="Dev_AutoFolderItems.lua" type="script" desc="Auto folder itmes">
       <metadata>
@@ -285,6 +285,9 @@
       </version>
       <version name="1.1" author="Giacomo Maraboli" time="2022-08-08T12:43:44Z">
         <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/906814ae42d363cc3df3b8aad02964fba546fc20/GM_Scripts/Dev_WwiseRender.lua</source>
+      </version>
+      <version name="1.2" author="Giacomo Maraboli" time="2022-08-11T10:39:59Z">
+        <source main="main">https://github.com/giacomomaraboli/GM_Scripts/raw/2bb3b7e646d47cb9957871a41d8a6d7d114f406c/GM_Scripts/Dev_WwiseRender.lua</source>
       </version>
     </reapack>
     <reapack name="GM_CloseAllFxWindows_ExceptMaster.lua" type="script" desc="Close all fx windows except Master">
